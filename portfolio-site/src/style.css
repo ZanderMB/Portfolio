@@ -1,1 +1,22 @@
 @import "tailwindcss";
+@source "../";
+
+@theme {
+    --color-background: #3D1E0F;
+    --color-surface: #5C3420;
+    --color-surface-light: #7A4A30;
+    --color-surface-card: #1E2D2F;
+
+    --color-copper: #CB6D51;
+    --color-copper-light: #E3A688;
+    
+    --color-text: #F5F0EB;
+    --color-text-muted: #C4B5A5;
+
+    --font-display: "Playfair Display", serif;
+    --font-body: "Lato", sans-serif;
+   
+}
+
+@variant openP (&.open);
+@variant openC (.open &);

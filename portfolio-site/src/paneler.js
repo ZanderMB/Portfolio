@@ -4,7 +4,6 @@ import { setCurrentPanel, currentPanel } from "./state.js";
 
 // navBar stuff
 const navBar = document.getElementById("navigation");
-const navBtn = document.querySelector("button")
 
 // currentPanel / Panel Storage Iterator
 
@@ -20,34 +19,71 @@ export const panels = [
 // Rendering Function
 export function renderPanel({element, content}){
     // console.log(element, content) //Debugging
+    element.classList.add('flex', 'flex-col', 'gap-6', "items-center");
 
     if (content.title) {
     let newTitle = document.createElement("h1");
     newTitle.textContent = content.title;
+    newTitle.classList.add(
+        "font-display", 
+        "text-4xl", 
+        "text-text"
+    )
     element.appendChild(newTitle);
     }
    
     if (content.description) {
     let newSection = document.createElement("section")
     newSection.textContent = content.description;
+    newSection.classList.add(
+        "font-body", 
+        "text-text"
+    )
     element.appendChild(newSection);
     }
 
     if (content.projects) {
         content.projects.forEach(project => {
             let projectCard = document.createElement("article")
+            projectCard.classList.add(
+                "flex",
+                "flex-col",
+                "bg-surface-card", 
+                "border",
+                "border-copper",
+                "rounded-lg",
+                "p-6",
+                "gap-2",
+                "hover:-translate-y-0.5",
+                "transition-transform",
+                "duration-200",
+            )
 
             let projectTitle = document.createElement("h3")
             projectTitle.textContent = project.name
+            projectTitle.classList.add(
+                "text-display",
+                "text-xl",
+                "self-center"
+            )
 
             let projectStack = document.createElement("p")
-            projectStack.textContent = project.stack
+            projectStack.textContent = `Project Stack: ${project.stack}`
+            projectStack.classList.add(
+                "text.body"
+            )
 
             let projectDesc = document.createElement("p")
             projectDesc.textContent = project.description
+            projectDesc.classList.add(
+                "text.body"
+            )
 
             let projectLink = document.createElement("a")
             projectLink.textContent = project.link
+            projectLink.classList.add(
+                "text.body"
+            )
 
             projectCard.appendChild(projectTitle)
             projectCard.appendChild(projectStack)
@@ -74,7 +110,7 @@ export function renderPanel({element, content}){
 
 // Panel Clear Function
 function _clearPanel(){
-    panels.forEach(panel => panel.element.innerHTML = "")
+    panels.forEach(panel => panel.element.innerHTML = "");
 };
 
 // Panel Set/Swap Fucntion
@@ -91,7 +127,7 @@ export function swapPanel(index){
 
 // Event Listeners
 navBar.addEventListener("click", (e) => {
-  if (e.target.tagName === "BUTTON") {
+  if (e.target.dataset.panel != undefined) {
     const index = e.target.dataset.panel
     swapPanel(parseInt(index))
   }
