@@ -1,5 +1,6 @@
 import { homePanel, aboutPanel, projectPanel, contactPanel } from "./panels/index.js";
 import { setCurrentPanel, currentPanel } from "./state.js";
+import { getRepo } from "./repoAPI.js"
 
 
 // navBar stuff
@@ -84,6 +85,11 @@ export function renderPanel({element, content}){
             projectLink.classList.add(
                 "text.body"
             )
+
+            let projectAPI = document.createElement("p")
+            repoData = project.GithubAPI
+            getRepo(repoName);
+            projectAPI.textContent = url
 
             projectCard.appendChild(projectTitle)
             projectCard.appendChild(projectStack)
