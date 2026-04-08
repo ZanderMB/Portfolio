@@ -1,7 +1,10 @@
 const homePanel = {
-    title: "Zaner's Portfolio",
-    description: "Placeholder Description Goes Here, this will be shorter than the dedicated About Me, obviously. Still debating on whether or not I should have a Navigation below this as well or just stick to the NavBar to the left.",
-    ProjectsCTA: "Some of my projects can be found here."
+    title: "Zander's Portfolio",
+    role: "Web/Software Developer & Aspiring Cybersecurity Specialist",
+    description: [
+        "I build web apps, containerized services via Docker, and bare-metal GNS3 network simulators. I'm passionate about building clean efficient apps, building apps people actually have need of, and understanding the full stack from the web to the infrastructure."
+    ],
+    homeCTA: "Some of my projects can be found here."
 };
 
 export default homePanel;

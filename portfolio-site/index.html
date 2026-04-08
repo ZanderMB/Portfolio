@@ -1,33 +1,71 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">     
-    <title>portfolio-site</title>
-  </head>
-  <body class="flex flex-row bg-background text-text font-body min-h-screen">
-    <nav id="navigation" class="flex flex-col items-center fixed left-0 top-0 h-screen w-12 gap-2 openP:w-32 openP:bg-surface open:bg-opacity-20 transition-all duration-300">
-      <button id="navHamburger"> | | | </button>
-      <button class="hidden openC:block openC:bg-copper openC:border-2 openC:border-surface-light openC:hover:bg-copper-light rounded-xl w-fit p-1" data-panel="0">Home</button>
-      <button class="hidden openC:block openC:bg-copper openC:border-2 openC:border-surface-light openC:hover:bg-copper-light rounded-xl w-fit p-1" data-panel="1">About</button>
-      <button class="hidden openC:block openC:bg-copper openC:border-2 openC:border-surface-light openC:hover:bg-copper-light rounded-xl w-fit p-1" data-panel="2">Project</button>
-      <button class="hidden openC:block openC:bg-copper openC:border-2 openC:border-surface-light openC:hover:bg-copper-light rounded-xl w-fit p-1" data-panel="3">Contact</button>
-    </nav>
-
-    <main class="flex flex-col flex-1 pt-16 p-4 w-auto mx-auto">
-      
-      <div id="home"></div>
-
-      <div id="about"></div>
-
-      <div id="project"></div>
-
-      <div id="contact"></div>
-    </main>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zander's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="bg-background text-text antialiased">
+ 
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 border-b border-copper/30 bg-background/90 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+      <a class="font-display text-lg font-bold tracking-wide text-copper">Zander MB</a>
+ 
+      <nav id="navigation" aria-label="Primary navigation">
+        <ul class="flex flex-wrap items-center gap-4 text-sm font-body">
+          <li><a class="transition hover:text-copper-light cursor-pointer" data-panel="0">Home</a></li>
+          <li><a class="transition hover:text-copper-light cursor-pointer" data-panel="1">About</a></li>
+          <li><a class="transition hover:text-copper-light cursor-pointer" data-panel="2">Projects</a></li>
+          <li><a class="transition hover:text-copper-light cursor-pointer" data-panel="3">Contact</a></li>
+        </ul>
+      </nav>
+ 
+      <!-- Hamburger (mobile) -->
+      <button id="navHamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle navigation">
+        <span class="block w-6 h-0.5 bg-text transition-all openP:rotate-45 openP:translate-y-2"></span>
+        <span class="block w-6 h-0.5 bg-text transition-all openP:opacity-0"></span>
+        <span class="block w-6 h-0.5 bg-text transition-all openP:-rotate-45 openP:-translate-y-2"></span>
+      </button>
+    </div>
+  </header>
+ 
+  <main class="mx-auto max-w-6xl px-4 py-12">
+ 
+    <!-- Home Panel -->
+    <section id="home" class="min-h-[80vh]">
+      <!-- Rendered by home.js via paneler.js -->
+    </section>
+ 
+    <!-- About Panel -->
+    <section id="about" class="min-h-[80vh] hidden">
+      <!-- Rendered by about.js via paneler.js -->
+    </section>
+ 
+    <!-- Projects Panel -->
+    <section id="project" class="min-h-[80vh] hidden">
+      <!-- Rendered by project.js via paneler.js -->
+    </section>
+ 
+    <!-- Contact Panel -->
+    <section id="contact" class="min-h-[80vh] hidden">
+      <!-- Rendered by contact.js via paneler.js -->
+    </section>
+ 
+  </main>
+ 
+  <!-- Footer -->
+  <footer class="border-t border-copper/30 py-8 mt-12">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 text-sm text-text-muted font-body md:flex-row md:items-center md:justify-between">
+      <p>© 2026 Zander MB. Built with JavaScript, Tailwind CSS v4, and GitHub Pages.</p>
+      <p>PROG2700 Portfolio</p>
+    </div>
+  </footer>
+ 
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>

@@ -18,5 +18,31 @@
    
 }
 
+.btn {
+    bg: #1E2D2F
+}
+
 @variant openP (&.open);
 @variant openC (.open &);
+
+@media (max-width: 767px) {
+    #navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-background);
+        border-bottom: 1px solid color-mix(in srgb, var(--color-copper) 30%, transparent);
+        padding: 1rem;
+    }
+
+    #navigation.open {
+        display: block;
+    }
+    
+    #navigation ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
