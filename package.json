@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://ZanderMB.github.io/portfolio",
+  "homepage": "https://ZanderMB.github.io/Portfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
