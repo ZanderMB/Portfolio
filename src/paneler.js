@@ -18,7 +18,7 @@ export const panels = [
 // Rendering Function
 export function renderPanel({ element, content }) {
     element.classList.remove("hidden");
-    element.classList.add("flex", "flex-col", "gap-6", "items-center");
+    element.classList.add("flex", "flex-col", "gap-6", "items-center", "justify-center");
     let target = element;
 
     if (content.aside) {
@@ -27,8 +27,11 @@ export function renderPanel({ element, content }) {
             "grid",
             "grid-cols-1",
             "md:grid-cols-2", 
-            "gap-6", 
-            "w-full"
+            "justify-center",
+            "items-center",
+            "gap-6",
+            "w-full", 
+            "max-w-4xl"
         );
 
         let leftCol = document.createElement("div");
@@ -45,7 +48,7 @@ export function renderPanel({ element, content }) {
             "items-center",
             "justify-center",
             "aspect-3/4",
-            "max-h-120"
+            "max-h-100"
         );
 
         homeContainer.appendChild(leftCol);
