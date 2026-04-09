@@ -1,12 +1,11 @@
 import { homePanel, aboutPanel, projectPanel, contactPanel } from "./panels/index.js";
 import { setCurrentPanel, currentPanel } from "./state.js";
+import { getRepo, getUserRepos } from "./repoAPI.js"
+import { renderTitle, renderRole, renderDescription, renderCTA, renderSkills, renderGithubGrid, renderProjects, renderLinks, renderAside } from "./renderers/index.js";
 
 
 // navBar stuff
 const navBar = document.getElementById("navigation");
-
-// currentPanel / Panel Storage Iterator
-
 
 // Panel Storage
 export const panels = [
@@ -17,100 +16,79 @@ export const panels = [
 ];
 
 // Rendering Function
-export function renderPanel({element, content}){
-    // console.log(element, content) //Debugging
-    element.classList.add('flex', 'flex-col', 'gap-6', "items-center");
+export function renderPanel({ element, content }) {
+    element.classList.remove("hidden");
+    element.classList.add("flex", "flex-col", "gap-6", "items-center");
+    let target = element;
+
+    if (content.aside) {
+        let homeContainer = document.createElement("div");
+        homeContainer.classList.add(
+            "grid",
+            "grid-cols-1",
+            "md:grid-cols-2", 
+            "gap-6", 
+            "w-full"
+        );
+
+        let leftCol = document.createElement("div");
+        leftCol.classList.add(
+            "flex",
+            "flex-col",
+            "items-center",
+            "gap-6"
+        );
+
+        let rightCol = document.createElement("div");
+        rightCol.classList.add(
+            "flex",
+            "items-center",
+            "justify-center",
+            "aspect-3/4",
+            "max-h-120"
+        );
+
+        homeContainer.appendChild(leftCol);
+        homeContainer.appendChild(rightCol);
+        element.appendChild(homeContainer);
+
+        target = leftCol;
+        renderAside(rightCol, content.aside);
+    }
+
 
     if (content.title) {
-    let newTitle = document.createElement("h1");
-    newTitle.textContent = content.title;
-    newTitle.classList.add(
-        "font-display", 
-        "text-4xl", 
-        "text-text"
-    )
-    element.appendChild(newTitle);
+        renderTitle(target, content.title);
     }
-   
+    if (content.role) {
+        renderRole(target, content.role);
+    }
     if (content.description) {
-    let newSection = document.createElement("section")
-    newSection.textContent = content.description;
-    newSection.classList.add(
-        "font-body", 
-        "text-text"
-    )
-    element.appendChild(newSection);
+        renderDescription(target, content.description);
     }
-
+    if (content.homeCTA) {
+        renderCTA(target, content.homeCTA);
+    }
+    if (content.skills) {
+        renderSkills(target, content.skills);
+    }
+    if (content.githubGrid) {
+        renderGithubGrid(target, content.githubGrid);
+    }
     if (content.projects) {
-        content.projects.forEach(project => {
-            let projectCard = document.createElement("article")
-            projectCard.classList.add(
-                "flex",
-                "flex-col",
-                "bg-surface-card", 
-                "border",
-                "border-copper",
-                "rounded-lg",
-                "p-6",
-                "gap-2",
-                "hover:-translate-y-0.5",
-                "transition-transform",
-                "duration-200",
-            )
-
-            let projectTitle = document.createElement("h3")
-            projectTitle.textContent = project.name
-            projectTitle.classList.add(
-                "text-display",
-                "text-xl",
-                "self-center"
-            )
-
-            let projectStack = document.createElement("p")
-            projectStack.textContent = `Project Stack: ${project.stack}`
-            projectStack.classList.add(
-                "text.body"
-            )
-
-            let projectDesc = document.createElement("p")
-            projectDesc.textContent = project.description
-            projectDesc.classList.add(
-                "text.body"
-            )
-
-            let projectLink = document.createElement("a")
-            projectLink.textContent = project.link
-            projectLink.classList.add(
-                "text.body"
-            )
-
-            projectCard.appendChild(projectTitle)
-            projectCard.appendChild(projectStack)
-            projectCard.appendChild(projectDesc)
-            projectCard.appendChild(projectLink)
-
-            element.appendChild(projectCard);
-        })
+        renderProjects(target, content.projects);
     }
-
-    if (content.github) {
-        let github = document.createElement("a");
-        github.href = "insert github link here later"
-        element.appendChild(github);
+    if (content.github || content.linkedin) {
+        renderLinks(target, content.github, content.linkedin);
     }
-
-    if (content.linkedin) {
-        let linkedin = document.createElement("a");
-        linkedin.href = "insert linkedinn link here later"
-        element.appendChild(linkedin);
-    }
-
-};
+}
 
 // Panel Clear Function
 function _clearPanel(){
-    panels.forEach(panel => panel.element.innerHTML = "");
+    panels.forEach(panel => {
+        panel.element.innerHTML = ""
+        panel.element.classList.add("hidden"); 
+    });
 };
 
 // Panel Set/Swap Fucntion
@@ -122,6 +100,7 @@ export function swapPanel(index){
     // Saving State
     sessionStorage.setItem('currentPanel', currentPanel);
     // Passs State to Renderer
+    panels[index].element.classList.remove("hidden");
     renderPanel(panels[index]);
 };
 

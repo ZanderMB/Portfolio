@@ -1,7 +1,7 @@
 const contactPanel = {
     title: "How to Contact Me",
-    github: "GitHub Account",
-    linkedin: "LinkedIn Account"
+    github: "https://github.com/ZanderMB",
+    linkedin: "https://www.linkedin.com/in/zander-broome-9b8238392"
 };
 
 export default contactPanel;

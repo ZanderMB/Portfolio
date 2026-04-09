@@ -1,8 +1,8 @@
 const navBar = document.getElementById("navigation");
-const navBtn = document
 const burgerBtn = document.getElementById("navHamburger");
 
 // Hambruger liSteninger
 burgerBtn.addEventListener("click", (e) => {
-    navBar.classList.toggle('open')
+    burgerBtn.classList.toggle("open");
+    navBar.classList.toggle("open");
 });
