@@ -33,7 +33,7 @@ const projectPanel = {
         {
             name: " Corah Web-based Kiosk",
             stack: "Django, Tailwind, PostCSS, Javascript",
-            description: "A Django-based web app designed for the <strong>Centre of Rural and Aging Health</strong> at NSCC Strait Area Campus. It was built using a full-stack pipeline. Django, PostgreSQL, Tailwind CSS, and spun up utilizing Docker. This was a group project, I was mainly on the event side of things. I built the event cards, event list, event detail page, the event forms, as well as some of the semantic tokens for Tailwind CSS.",
+            description: "A Django-based web app designed for the Centre of Rural and Aging Health at NSCC Strait Area Campus. It was built using a full-stack pipeline. Django, PostgreSQL, Tailwind CSS, and spun up utilizing Docker. This was a group project, I was mainly on the event side of things. I built the event cards, event list, event detail page, the event forms, as well as some of the semantic tokens for Tailwind CSS.",
             link: "",
             GithubAPI: "",
             img: corahImg
