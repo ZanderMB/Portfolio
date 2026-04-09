@@ -13,7 +13,7 @@
 
 // The nested objects will be seperate projects.
 const projectPanel = {
-    title:" Zander's Professional and Personal Projects",
+    title:" My Professional and Personal Projects",
     githubGrid: {
         username: "ZanderMB",
         title: "All GitHub Repositories"
