@@ -9,7 +9,10 @@
 
     --color-copper: #CB6D51;
     --color-copper-light: #E3A688;
+    --color-copper-dark: #8B4433;
     
+    --color-btn-background: #1E2D2F;
+
     --color-text: #F5F0EB;
     --color-text-muted: #C4B5A5;
 
@@ -19,7 +22,7 @@
 }
 
 .btn {
-    bg: #1E2D2F
+    @apply bg-btn-background;
 }
 
 @variant openP (&.open);
