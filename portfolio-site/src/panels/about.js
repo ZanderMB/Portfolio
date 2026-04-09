@@ -9,13 +9,14 @@ const aboutPanel = {
         Languages: [
             "Javascript",
             "Tailwind CSS",
+            "PostgreSQL",
             "Python",
             "Django"
-
         ],
         Tools: [
             "Azure DevOps",
             "Github",
+            "Docker",
             "GNS3",
             "Git"
         ],
