@@ -7,9 +7,17 @@ export function renderLinks(element, github, linkedin) {
         githubLink.rel = "noopener noreferrer";
         githubLink.classList.add(
             "font-body",
-            "text-copper",
+            "text-text",
             "hover:text-copper-light",
-            "transition"
+            "transition",
+            "px-3",
+            "py-1",
+            "w-fit",
+            "text-lg",
+            "border-3",
+            "border-copper-dark",
+            "bg-copper",
+            "rounded-full"
         );
         element.appendChild(githubLink);
     }
@@ -22,9 +30,17 @@ export function renderLinks(element, github, linkedin) {
         linkedinLink.rel = "noopener noreferrer";
         linkedinLink.classList.add(
             "font-body",
-            "text-copper",
+            "text-text",
             "hover:text-copper-light",
-            "transition"
+            "transition",
+            "px-3",
+            "py-1",
+            "w-fit",
+            "text-lg",
+            "border-3",
+            "border-copper-dark",
+            "bg-copper",
+            "rounded-full"
         );
         element.appendChild(linkedinLink);
     }
